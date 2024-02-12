@@ -17,7 +17,9 @@ public class Algorithms {
         }
     }
     public void addIntParam(ArrayList<Integer> nums, int num){
-
+        for (int i = 0; i < nums.size(); i++){
+            if (num > nums.get(i) nums.add(i+1,num));
+        }
     }
     public boolean isReverse(ArrayList<Integer> first, ArrayList<Integer> second){
         for (int i = 0;i < first.size() - 1; i++){
@@ -53,4 +55,21 @@ public class Algorithms {
         }
         return longest;
     }
+    public int largestAbsDiff(ArrayList<Integer> list1, ArrayList<Integer> list2){
+        int largestAbsDiff = Math.abs(list1.get(0) - Math.abs(list2.get(0)));
+        for (int i = 1; i < list1.size();i++){
+            if (list1.get(i) - list2.get(i) > largestAbsDiff) largestAbsDiff = list1.get(i) - list2.get(i);
+        }
+        return largestAbsDiff;
+    }
+    public double mean(ArrayList<Double> nums){
+        double sum = 0;
+        for (double num:nums){
+            sum += num;
+        }
+        return sum/ nums.size();
+    }
+    public void reverseArray(ArrayList<Integer> nums){
+    }
 }
+
