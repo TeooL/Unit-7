@@ -18,7 +18,8 @@ public class Algorithms {
     }
     public void addIntParam(ArrayList<Integer> nums, int num){
         for (int i = 0; i < nums.size(); i++){
-            if (num > nums.get(i) nums.add(i+1,num));
+            if (i == nums.size() - 1) nums.add(num);
+            else if (num > nums.get(i)) nums.add(i+1,num);
         }
     }
     public boolean isReverse(ArrayList<Integer> first, ArrayList<Integer> second){
@@ -70,6 +71,32 @@ public class Algorithms {
         return sum/ nums.size();
     }
     public void reverseArray(ArrayList<Integer> nums){
+        for (int i = 0; i < nums.size()/2;i++){
+            int temp = nums.get(i);
+            nums.set(i, nums.get(nums.size() - i -1));
+            nums.set(nums.size() - i - 1, temp);
+        }
+    }
+    public boolean hasConsecutive(ArrayList<Integer> nums){
+        for (int i = 0; i < nums.size() - 1;i++){
+            if (nums.get(i) == nums.get(i+1)) return true;
+        }
+        return false;
+    }
+    public int indexOfFirstNegativeVal(ArrayList<Integer> nums){
+        for (int i = 0; i < nums.size();i++){
+            if (nums.get(i) < 0) return i;
+        }
+        return -1;
+    }
+    public boolean hasEqualValues(ArrayList<Integer> nums){
+        for (int i: nums){
+            int num = i;
+            for (int n: nums){
+                if (n == i) return true;
+            }
+        }
+        return false;
     }
 }
 
