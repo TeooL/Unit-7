@@ -98,5 +98,20 @@ public class Algorithms {
         }
         return false;
     }
+    public ArrayList<Integer> createTestCase(int[] nums){
+        ArrayList<Integer> newNum = new ArrayList<Integer>();
+        for (int i: nums){
+            newNum.add(i);
+        }
+        return newNum;
+    }
+    public ArrayList<String> createTestCase(String[] words) {
+        ArrayList<String> newNum = new ArrayList<String>();
+        for (String i : words) {
+            newNum.add(i);
+        }
+        return newNum;
+    }
 }
+
 
