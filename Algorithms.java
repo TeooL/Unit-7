@@ -17,14 +17,17 @@ public class Algorithms {
         }
     }
     public void addIntParam(ArrayList<Integer> nums, int num){
-        for (int i = 0; i < nums.size(); i++){
-            if (i == nums.size() - 1) nums.add(num);
-            else if (num > nums.get(i)) nums.add(i+1,num);
+        int index = 0;
+        for (int value:nums){
+            if(num<=value) break;
+            index++;
         }
+        if (index >nums.size()-1) nums.add(num);
+        else nums.add(index,num);
     }
     public boolean isReverse(ArrayList<Integer> first, ArrayList<Integer> second){
         for (int i = 0;i < first.size() - 1; i++){
-            if (first.get(i) != second.get(i)) return false;
+            if (first.get(i) != second.get(second.size()-i -1)) return false;
         }
         return true;
     }
@@ -38,7 +41,7 @@ public class Algorithms {
     public int returnMin(ArrayList<Integer> nums){
         int min = nums.get(0);
         for (int i = 1;i < nums.size();i++){
-            if (nums.get(i) > min) min = nums.get(i);
+            if (nums.get(i) < min) min = nums.get(i);
         }
         return min;
     }
@@ -90,10 +93,9 @@ public class Algorithms {
         return -1;
     }
     public boolean hasEqualValues(ArrayList<Integer> nums){
-        for (int i: nums){
-            int num = i;
-            for (int n: nums){
-                if (n == i) return true;
+        for (int i=0;i<nums.size();i++){
+            for (int n = i + 1; n<nums.size();n++) {
+                if (nums.get(n).equals(nums.get(i))) return true;
             }
         }
         return false;
@@ -112,6 +114,14 @@ public class Algorithms {
         }
         return newNum;
     }
+    public ArrayList<Double> createTestCase(double[] numbers){
+        ArrayList<Double> newNum = new ArrayList<Double>();
+        for (double i: numbers){
+            newNum.add(i);
+        }
+        return newNum;
+    }
 }
+
 
 
